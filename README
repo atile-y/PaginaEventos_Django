@@ -1,0 +1,18 @@
+
+Proyecto en Django de la pagina web para la administracion de eventos y
+establecimientos.
+
+Desarrolladores:
+    * Alejandro Yescas
+    * Fernando Valdez
+    * Cherjalm Lopez
+
+Para poder hacer uso del proyecto, asi como iniciar el servidor, es necesario
+tener instalado Django en el servidor o computadora.
+
+Para iniciar el servidor ejecutar en la terminal:
+    python manage.py runserver
+
+O para iniciarlo en algun puerto diferente al 8000:
+    python manage.py runserver <puerto>
+

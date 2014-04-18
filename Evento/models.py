@@ -1,33 +1,35 @@
 from django.db import models
 
+import uuid
+
 # Create your models here.
 
 class Precio(models.Model):
-    precio = models.DecimalField(max_digits=7, decimal_places=2)
+    precio = models.DecimalField(max_digits=7, decimal_places=2, unique=True)
 
     def __unicode__(self):
         return unicode(self.precio)
 
 class Hora(models.Model):
-    hora = models.TimeField()
+    hora = models.TimeField(unique=True)
 
     def __unicode__(self):
         return unicode(self.hora)
 
 class Fecha(models.Model):
-    fecha = models.DateField()
+    fecha = models.DateField(unique=True)
 
     def __unicode__(self):
         return unicode(self.fecha)
 
 class GeneroMusical(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, unique=True)
 
     def __unicode__(self):
         return self.nombre
 
 class Artista(models.Model):
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, unique=True)
     generosmusicales = models.ManyToManyField(GeneroMusical,
             verbose_name='genero musical')
 
@@ -35,19 +37,19 @@ class Artista(models.Model):
         return unicode(self.nombre)
 
 class TipoEvento(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, unique=True)
 
     def __unicode__(self):
         return self.nombre
 
 class TipoObraTeatro(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, unique=True)
 
     def __unicode__(self):
         return self.nombre
 
 class TipoDanza(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, unique=True)
 
     def __unicode__(self):
         return self.nombre
@@ -55,6 +57,9 @@ class TipoDanza(models.Model):
 class Evento(models.Model):
     nombre = models.CharField(max_length=100)
     URLImg = models.ImageField(upload_to='eventosImg/%Y/%m/%d',
+            name=str(uuid.uuid4()),
+            width_field=800,
+            height_field=600,
             verbose_name='imagen')
     URLWeb = models.URLField('pagina web')
     descripcion = models.TextField()
@@ -65,6 +70,7 @@ class Evento(models.Model):
     fechas = models.ManyToManyField(Fecha)
     tipoevento = models.ForeignKey(TipoEvento)
     artistas = models.ManyToManyField(Artista)
+    establecimiento = models.ForeignKey('Establecimiento.Establecimiento')
 
     def __unicode__(self):
         return self.nombre

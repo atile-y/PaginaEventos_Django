@@ -1,11 +1,19 @@
 from django.db import models
 
-import uuid
+from uuid import uuid4
+from time import strftime
+import os.path
 
 # Create your models here.
 
+def imageName(instance, filename):
+    path = 'eventosImg/' + strftime('%Y/%m/%d/') + str(uuid4())
+    path += os.path.splitext(filename)[1]
+    return path
+
 class Precio(models.Model):
-    precio = models.DecimalField(max_digits=7, decimal_places=2, unique=True)
+    precio = models.DecimalField(max_digits=7, decimal_places=2,
+                unique=True)
 
     def __unicode__(self):
         return unicode(self.precio)
@@ -56,11 +64,7 @@ class TipoDanza(models.Model):
 
 class Evento(models.Model):
     nombre = models.CharField(max_length=100)
-    URLImg = models.ImageField(upload_to='eventosImg/%Y/%m/%d',
-            name=str(uuid.uuid4()),
-            width_field=800,
-            height_field=600,
-            verbose_name='imagen')
+    URLImg = models.ImageField(upload_to=imageName, verbose_name='imagen')
     URLWeb = models.URLField('pagina web')
     descripcion = models.TextField()
     fecHoraPub = models.DateTimeField(auto_now_add=True)

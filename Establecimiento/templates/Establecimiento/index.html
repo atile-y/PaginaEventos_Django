@@ -1,0 +1,10 @@
+{% if est_list %}
+    <ul>
+    {% for est in est_list %}
+        <li><a href="{% url 'Establecimiento:detail' est.id %}">{{ est.nombre }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No existen establecimientos.</p>
+{% endif %}
+

@@ -7,6 +7,9 @@ import os.path
 # Create your models here.
 
 def imageName(instance, filename):
+    if instance.id:
+        est = Establecimiento.objects.get(pk=instance.id)
+        os.remove(est.URLImg.path)
     path = 'establecimientosImg/' + strftime('%Y/%m/%d/') + str(uuid4())
     path += os.path.splitext(filename)[1]
     return path

@@ -2,14 +2,14 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
 
+from PaginaEventos import views
+
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'PaginaEventos.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
+    url(r'^$', views.HomeView.as_view(), name='home'),
+    url(r'^evento/', include('Evento.urls', namespace="Evento")),
     url(r'^establecimiento/', include('Establecimiento.urls',
                                       namespace="Establecimiento")),
     url(r'^admin/', include(admin.site.urls)),

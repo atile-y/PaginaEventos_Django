@@ -1,0 +1,54 @@
+<h1>{{ evento.nombre }}</h1>
+<ul>
+    <li>
+        <span>Im&aacute;gen:</span>
+        <img src="{{ evento.URLImg.url }}" height="200" width="300">
+    </li>
+    <li>
+        <span>P&aacute;gina Web:</span>
+        <a href="{{ evento.URLWeb }}">{{ evento.URLWeb }}</a>
+    </li>
+    <li><span>Descripci&oacute;n</span> {{ evento.descripcion }}</li>
+    <li><span>Publicado:</span> {{ evento.fecHoraPub }}</li>
+    <li><span>Visitas:</span> {{ evento.nVisitas }}</li>
+    <li>
+        <span>Precios:</span>
+        <ul>
+        {% for precio in evento.precios.all %}
+            <li>{{ precio }}</li>
+        {% endfor %}
+        </ul>
+    </li>
+    <li>
+        <span>Horas:</span>
+        <ul>
+        {% for hora in evento.horas.all %}
+            <li>{{ hora }}</li>
+        {% endfor %}
+        </ul>
+    </li>
+    <li>
+        <span>Fechas:</span>
+        <ul>
+        {% for fecha in evento.fechas.all %}
+            <li>{{ fecha }}</li>
+        {% endfor %}
+        </ul>
+    </li>
+    <li><span>Tipo de Evento:</span> {{ evento.tipoevento }}</li>
+    <li>
+        <span>Artistas:</span>
+        <ul>
+        {% for art in evento.artistas.all %}
+            <li>{{ art }}</li>
+        {% endfor %}
+        </ul>
+    </li>
+    <li>
+        <span>Establecimiento:</span>
+        <a href="{% url 'Establecimiento:detail' evento.establecimiento.id %}">
+            {{ evento.nombre }}
+        </a>
+    </li>
+</ul>
+

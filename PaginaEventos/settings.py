@@ -24,6 +24,9 @@ SECRET_KEY = '@#r1!f8h$j$e12!h*k38h#kqfr$re!t$1*j=a(e68+okbz&8vz'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates/'),
+)
 
 ALLOWED_HOSTS = []
 

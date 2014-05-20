@@ -1,0 +1,10 @@
+{% if eve_list %}
+    <ul>
+    {% for eve in eve_list %}
+        <li><a href="{% url 'Evento:detail' eve.id %}">{{ eve.nombre }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No existen eventos.</p>
+{% endif %}
+

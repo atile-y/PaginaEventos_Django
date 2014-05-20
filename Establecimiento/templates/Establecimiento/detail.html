@@ -1,20 +1,26 @@
-<h1>{{ est.nombre }}</h1>
+<h1>{{ establecimiento.nombre }}</h1>
 <ul>
-    <li><p><span>Im&aacute;gen:</span></p>
-        <img src="{{ est.URLImg.url }}" height="200" width="300"></li>
-    <li><p><span>P&aacute;gina Web:</span>
-        <a href="{{ est.URLWeb }}">{{ est.URLWeb }}</a></p></li>
-    <li><p><span>Descripci&oacute;n:</span> {{ est.descripcion }}</p></li>
-    <li><p><span>Calle:</span> {{ est.calle }}</p></li>
-    <li><p><span>N&uacute;mero Interior:</span> {{ est.noInt }}</p></li>
-    <li><p><span>N&uacute;mero Exterior:</span> {{ est.noExt }}</p></li>
-    <li><p><span>Colonia:</span> {{ est.colonia }}</p></li>
-    <li><p><span>Delegaci&oacute;n:</span> {{ est.delegacion }}</p></li>
-    <li><p><span>Estado:</span> {{ est.estado }}</p></li>
-    <li><p><span>C&oacute;digo Postal:</span> {{ est.CP }}</p></li>
-    <li><p><span>Publicado:</span> {{ est.fecHoraPub }}</p></li>
-    <li><p><span>Visitas:</span> {{ est.nVisitas }}</p></li>
-    <li><p><span>Tipo de Establecimiento:</span>
-        {{ est.tipoestablecimiento }}</p></li>
+    <li>
+        <span>Im&aacute;gen:</span>
+        <img src="{{ establecimiento.URLImg.url }}" height="200" width="300">
+    </li>
+    <li>
+        <span>P&aacute;gina Web:</span>
+        <a href="{{ establecimiento.URLWeb }}">{{ establecimiento.URLWeb }}</a>
+    </li>
+    <li><span>Descripci&oacute;n:</span>{{ establecimiento.descripcion }}</li>
+    <li><span>Calle:</span> {{ establecimiento.calle }}</li>
+    <li><span>N&uacute;mero Interior:</span> {{ establecimiento.noInt }}</li>
+    <li><span>N&uacute;mero Exterior:</span> {{ establecimiento.noExt }}</li>
+    <li><span>Colonia:</span> {{ establecimiento.colonia }}</li>
+    <li><span>Delegaci&oacute;n:</span> {{ establecimiento.delegacion }}</li>
+    <li><span>Estado:</span> {{ establecimiento.estado }}</li>
+    <li><span>C&oacute;digo Postal:</span> {{ establecimiento.CP }}</li>
+    <li><span>Publicado:</span> {{ establecimiento.fecHoraPub }}</li>
+    <li><span>Visitas:</span> {{ establecimiento.nVisitas }}</li>
+    <li>
+        <span>Tipo de Establecimiento:</span>
+        {{ establecimiento.tipoestablecimiento }}
+    </li>
 </ul>
 

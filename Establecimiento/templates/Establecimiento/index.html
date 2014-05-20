@@ -1,7 +1,12 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'Establecimiento/index.css' %}" />
+
 {% if est_list %}
     <ul>
     {% for est in est_list %}
-        <li><a href="{% url 'Establecimiento:detail' est.id %}">{{ est.nombre }}</a></li>
+        <li>
+            <a href="{% url 'Establecimiento:detail' est.id %}">{{ est.nombre }}</a>
+        </li>
     {% endfor %}
     </ul>
 {% else %}

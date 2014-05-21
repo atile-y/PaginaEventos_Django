@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Alejandro Yescas" />
+    <meta name="keywords" content="evento, artista, musica" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'PaginaEventos/reset.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'PaginaEventos/base.css' %}" />
+    {% block style %}{% endblock %}
+
+    <title>{% block title %}P&aacute;gina Eventos{% endblock %}</title>
+</head>
+
+<body>
+    <div id="header">
+        <img id="logo" src="{% static 'images/logo.png' %}" height="50px" alt="Logo" />
+        <p>P&aacute;gina Eventos</p>
+    </div>
+
+    <div id="container">
+	    <ul id="menu">
+	        <li><a href="{% url 'home' %}">Home</a></li>
+	        <li><a href="{% url 'Evento:index' %}">Eventos</a></li>
+	        <li><a href="{% url 'Establecimiento:index' %}">Lugares</a></li>
+	    </ul>
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>Footer.</p>
+    </div>
+</body>
+</html>
+

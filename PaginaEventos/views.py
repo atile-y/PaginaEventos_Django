@@ -13,6 +13,8 @@ class HomeView(generic.ListView):
         seran publicados en el futuro).
         """
         return Evento.objects.filter(
-            fecHoraPub__lte=timezone.now()
-        ).order_by('-fecHoraPub')[:4]
+                    fechas__fecha__gte=timezone.now()
+                ).order_by(
+                    '-fechas__fecha', 'nombre'
+                )[:4]
 

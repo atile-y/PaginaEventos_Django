@@ -1,0 +1,80 @@
+/* Pagina de Estilos para el header, footer y menu */
+
+body {
+    background-color: #F1F1F1;
+}
+
+#header {
+    width: 100%;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-bottom: 1px #E6E6E6 solid;
+    position: fixed;
+    top: 0px;
+}
+
+#logo {
+    margin-left: 50px;
+    margin-right: 20px;
+    float: left;
+}
+
+#header p {
+    font-size: 20px;
+    line-height: 50px;
+    float: left;
+}
+
+#footer {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 50px 0px 30px;
+    text-align: center;
+    border-top: 1px #E6E6E6 solid;
+}
+
+#footer p {
+    font-size: 0.8em;
+}
+
+#container {
+    width: 960px;
+    margin: 80px auto 30px;
+    overflow: hidden;
+}
+
+#menu {
+    width: 100px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    position: fixed;
+    border: 1px #E6E6E6 solid;
+}
+
+#menu > li {
+    margin: 5px 0px;
+}
+
+#menu a {
+    display: block;
+    padding: 5px;
+    background-color: yellowgreen;
+    text-align: center;
+}
+
+#menu a:hover {
+    background-color: #5C7B1E;
+    color: #D8D8D8;
+}
+
+#content {
+    width: 800px;
+    margin-left: 138px; /* Debe sumar 938 con el ancho */
+    min-height: 430px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px #E6E6E6 solid;
+}
+

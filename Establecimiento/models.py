@@ -1,4 +1,5 @@
 from django.db import models
+from django.dispatch import receiver
 
 from uuid import uuid4
 from time import strftime
@@ -77,4 +78,14 @@ class EstablecimientoEscuela(models.Model):
     idEstablecimientoEscuela = models.ForeignKey(Establecimiento,
             primary_key=True)
     tipoescuela = models.ForeignKey(TipoEscuela)
+
+@receiver(models.signals.post_delete, sender=Establecimiento)
+def establecimiento_post_delete(sender, instance, **kwargs):
+    """
+    Elimina los archivos cuando un objeto de tipo
+    Establecimiento es eliminado.
+    """
+    if instance.URLImg:
+        if os.path.isfile(instance.URLImg.path):
+            os.remove(instance.URLImg.path)
 

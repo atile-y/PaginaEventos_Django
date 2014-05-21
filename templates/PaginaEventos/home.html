@@ -1,10 +1,19 @@
+{% extends "PaginaEventos/base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'PaginaEventos/home.css' %}" />
+{% endblock %}
+
+{% block content %}
 {% if eve_filter %}
-    <ul>
+    <ul id="eventos">
     {% for eve in eve_filter %}
         <li>{{ eve.nombre }}</li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No existen eventos.</p>
+    <p id="error">No existen eventos.</p>
 {% endif %}
+{% endblock %}
 

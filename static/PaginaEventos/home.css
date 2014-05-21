@@ -1,0 +1,18 @@
+#error {
+    text-align: center;
+}
+
+#eventos {
+    font-size: 0px;
+}
+
+#eventos > li {
+    width: 180px;
+    margin: 9px;
+    border: 1px black solid;
+    border-radius: 15px;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+}
+

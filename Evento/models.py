@@ -1,4 +1,5 @@
 from django.db import models
+from django.dispatch import receiver
 
 from uuid import uuid4
 from time import strftime
@@ -93,4 +94,11 @@ class EventoObraTeatro(models.Model):
 class EventoDanza(models.Model):
     idEventoDanza = models.ForeignKey(Evento, primary_key=True)
     tipodanza = models.ForeignKey(TipoDanza)
+
+@receiver(models.signals.post_delete, sender=Evento)
+def evento_post_delete(sender, instance, **kwargs):
+    """Elimina archivos cuando un objeto de tipo Evento es eliminado."""
+    if instance.URLImg:
+        if os.path.isfile(instance.URLImg.path):
+            os.remove(instance.URLImg.path)
 

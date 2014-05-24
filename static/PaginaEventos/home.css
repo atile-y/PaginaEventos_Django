@@ -6,13 +6,67 @@
     font-size: 0px;
 }
 
-#eventos > li {
+.row {
+    display: flex;
+    display: flexbox;
+    display: box;
+}
+
+#eventos > .row > li {
     width: 180px;
-    margin: 9px;
+    min-height: 180px;
+    margin: 10px;
     border: 1px black solid;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     border-radius: 15px;
     display: inline-block;
     text-align: center;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+#eventos > .row > li:hover {
+    cursor: pointer;
+}
+
+#eventos > .row > li > img {
+    border-radius: 15px 15px 0px 0px;
+    -moz-border-radius: 15px 15px 0px 0px;
+    -ms-border-radius: 15px 15px 0px 0px;
+    -webkit-border-radius: 15px 15px 0px 0px;
+    margin-bottom: 10px;
+    border-bottom: 3px #A2A2A2 solid;
+}
+
+.row p {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.row span {
+    margin-right: 10px;
+    margin-left: 10px;
+    float: left;
+}
+
+p.nombre {
+    margin-bottom: 10px;
     font-size: 16px;
+    font-weight: bold;
+}
+
+p.desc {
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-align: justify;
+}
+
+p.fecha {
+    margin-bottom: 5px;
+    font-size: 12px;
+    text-align: right;
 }
 

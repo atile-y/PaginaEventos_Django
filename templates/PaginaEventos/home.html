@@ -9,7 +9,21 @@
 {% if eve_filter %}
     <ul id="eventos">
     {% for eve in eve_filter %}
-        <li>{{ eve.nombre }}</li>
+        {% if forloop.counter0|divisibleby:"4" %}
+        <div class="row">
+        {% endif %}
+            <li>
+                <img src="{{ eve.URLImg.url }}" width="178px" />
+                <p class="nombre">{{ eve.nombre }}</p>
+                <p class="desc">{{ eve.descripcion }}</p>
+                <span>Fecha{{ eve.fechas.all|length|pluralize }}:</span>
+                {% for f in eve.fechas.all|dictsort:'fecha' %}
+                <p class="fecha">{{ f.fecha }}</p>
+                {% endfor %}
+            </li>
+        {% if forloop.counter0|add:"1"|divisibleby:"4" %}
+        </div>
+        {% endif %}
     {% endfor %}
     </ul>
 {% else %}

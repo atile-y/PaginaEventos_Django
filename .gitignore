@@ -5,3 +5,8 @@
 *.un~
 *.pyc
 
+# Uploaded Images
+
+media/establecimientosImg/*
+media/eventosImg/*
+
